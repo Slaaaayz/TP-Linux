@@ -69,16 +69,16 @@ dd if=/dev/zero of=/dev/sda2 bs=4M.
 
 
 ```bash 
-[slayz@localhost ~]$ echo "#!/bin/bash" > /home/slayz/stubborn_spam.sh
-[slayz@localhost ~]$ echo "trap '' INT" >> /home/slayz/stubborn_spam.sh
-[slayz@localhost ~]$ echo "while true" >> /home/slayz/stubborn_spam.sh
-[slayz@localhost ~]$ echo "do" >> /home/slayz/stubborn_spam.sh
-[slayz@localhost ~]$ echo "  echo -e '\e[1;31mBambou aymeric\e[1;32mGay\e[1;31m!'" >> /home/slayz/stubborn_spam.sh
-[slayz@localhost ~]$ echo "  echo -e '\e[0m'" >> /home/slayz/stubborn_spam.sh
-[slayz@localhost ~]$ echo "done" >> /home/slayz/stubborn_spam.sh
-[slayz@localhost ~]$ chmod +x /home/slayz/stubborn_spam.sh
+[slayz@localhost ~]$ echo "#!/bin/bash" > /home/slayz/spam.sh
+[slayz@localhost ~]$ echo "trap '' INT" >> /home/slayz/spam.sh
+[slayz@localhost ~]$ echo "while true" >> /home/slayz/spam.sh
+[slayz@localhost ~]$ echo "do" >> /home/slayz/spam.sh
+[slayz@localhost ~]$ echo "  echo -e '\e[1;31mBambou aymeric\e[1;32mGay\e[1;31m!'" >> /home/slayz/spam.sh
+[slayz@localhost ~]$ echo "  echo -e '\e[0m'" >> /home/slayz/spam.sh
+[slayz@localhost ~]$ echo "done" >> /home/slayz/spam.sh
+[slayz@localhost ~]$ chmod +x /home/slayz/spam.sh
 
-[slayz@localhost ~]$ echo "/home/slayz/stubborn_spam.sh" >> /home/slayz/.bash_profile
+[slayz@localhost ~]$ echo "/home/slayz/spam.sh" >> /home/slayz/.bash_profile
 ```
 
 ```bash
@@ -93,7 +93,3 @@ dd if=/dev/zero of=/dev/sda2 bs=4M.
 [slayz@localhost ~]$ nano /etc/shadow
 ```
 puis supprimer des caracteres du hash
-
-
-
-
