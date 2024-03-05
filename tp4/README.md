@@ -1,4 +1,15 @@
 # TP4 : Real services
+## SOMMAIRE 
+- [Partie 1 : Partitionnement du serveur de stockage](#partie-1--partitionnement-du-serveur-de-stockage)
+
+- [Partie 2 : Serveur de partage de fichiers](#partie-2--serveur-de-partage-de-fichiers)
+
+- [Partie 3 : Serveur web](#partie-3--serveur-web)
+    - [2. Install](#2-install)
+    - [3. Analyse](#3-analyse)
+    - [4. Visite du service web](#4-visite-du-service-web)
+    - [5. Modif de la conf du serveur web](#5-modif-de-la-conf-du-serveur-web)
+    - [6. Deux sites web sur un seul serveur](#6-deux-sites-web-sur-un-seul-serveur)
 ## Partie 1 : Partitionnement du serveur de stockage
 **🌞 Partitionner le disque à l'aide de LVM**
 - créer un physical volume (PV) 

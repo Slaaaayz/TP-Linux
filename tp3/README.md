@@ -1,4 +1,18 @@
 # TP3 : Services
+# Sommaire
+
+- [I. Service SSH](#i-service-ssh)  
+   - [1. Analyse du service](#1-analyse-du-service)
+   - [2. Modification du service](#2-modification-du-service)
+
+- [II. Service HTTP](#ii-service-http)
+   - [1. Mise en place](#1-mise-en-place)
+   - [2. Analyser la configuration de NGINX](#2-analyser-la-conf-de-nginx)
+   - [3. Déployer un nouveau site web](#3-déployer-un-nouveau-site-web)
+
+- [III. Your Own Services](#iii-your-own-services)
+   - [2. Analyse des services existants](#2-analyse-des-services-existants)
+   - [3. Création de service](#3-création-de-service)
 
 ## I. Service SSH
 ### 1. Analyse du service
@@ -581,4 +595,37 @@ root       12288       1  0 09:03 ?        00:00:00 /usr/bin/nc -l 11720 -k
              └─12307 /usr/bin/nc -l 11720 -k
 
 Jan 30 09:09:19 node1.tp3.b1 systemd[1]: Started Super netcat tout fou.
+```
+# BONUS
+## 1. fail2ban
+```bash
+[slayz@node1 ~]$ sudo dnf install epel-release
+[slayz@node1 ~]$ sudo dnf install fail2ban
+[slayz@node1 ~]$ sudo nano /etc/fail2ban/jail.local
+  GNU nano 5.6.1                                     /etc/fail2ban/jail.local                                                [DEFAULT]
+# Ban hosts for one hour:
+bantime = 3600
+
+# Override backend=auto in /etc/fail2ban/jail.conf
+backend = systemd
+
+
+[sshd]
+enabled = true
+port = ssh
+filter = sshd
+logpath = /var/log/secure
+maxretry = 3
+[slayz@node1 ~]$ sudo systemctl start fail2ban
+[slayz@node1 ~]$ sudo systemctl enable fail2ban
+[slayz@node1 ~]$ sudo fail2ban-client status sshd
+Status for the jail: sshd
+|- Filter
+|  |- Currently failed: 1
+|  |- Total failed:     6
+|  `- Journal matches:  _SYSTEMD_UNIT=sshd.service + _COMM=sshd
+`- Actions
+   |- Currently banned: 1
+   |- Total banned:     1
+   `- Banned IP list:   10.2.1.1
 ```
